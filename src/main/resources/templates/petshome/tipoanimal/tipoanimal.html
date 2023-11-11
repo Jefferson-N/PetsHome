@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/petshome/plantilla/petshome-plantilla}">
+<head>
+<meta charset="UTF-8">
+<title th:text="${tituloPagina}"></title>
+</head>
+<body>
+	<div layout:fragment="ContenidoPetsHome">
+		<!--  Start code -->
+		<table class="table table-hover ">
+			<thead>
+				<th><a class="btn btn-primary datatable"
+					th:href="@{/crearTipoAnimal}"> <i
+						class="bi bi-file-earmark-plus"></i>
+				</a></th>
+
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Tipo Animal</th>
+					<th scope="col">Raza</th>
+					<th scope="col">Estado</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tipo : ${tipos}">
+					<td th:text="${tipo.id}"></td>
+					<td th:text="${tipo.descripcionTipo}"></td>
+					<td th:text="${tipo.fkRaza.detalleRaza}"></td>
+					<td th:text="(${tipo.estado} == 'A' )? 'Activo' : 'No disponible' "></td>
+					<td><a th:href="@{/editarTipoAnimal/}+${tipo.id}"
+						class="btn btn-success"> <i class="bi bi-pencil-square"></i>
+					</a></td>
+					<td><a th:href="@{/eliminarTipoAnimal/}+${tipo.id}"
+						th:onclick="return confirm('Esta seguro de eliminar el registro')"
+						class="btn btn-danger"> <i class="bi bi-trash-fill"></i>
+					</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+	<!--  End code -->
+</body>
+</html>

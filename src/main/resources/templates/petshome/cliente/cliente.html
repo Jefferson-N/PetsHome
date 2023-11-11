@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/petshome/plantilla/petshome-plantilla}">
+<head>
+<meta charset="UTF-8">
+<title th:text="${tituloPagina}"></title>
+</head>
+<body>
+
+	<!--  Start code -->
+	<div layout:fragment="ContenidoPetsHome">
+
+		<table class="table table-hover">
+			<thead>
+
+				<th><a class="btn btn-primary" th:href="@{/crearCliente}">
+						<i class="bi bi-file-earmark-plus"></i>
+				</a></th>
+
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Cedula</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Correo</th>
+					<th scope="col"></th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente : ${clientes}">
+					<td th:text="${cliente.id}"></td>
+					<td th:text="${cliente.identificacionCliente}"></td>
+					<td th:text="${cliente.nombreCliente}"></td>
+					<td th:text="${cliente.apellidoCliente}"></td>
+					<td th:text="${cliente.emailCliente}"></td>
+					<td><a th:href="@{/editarCliente/} + ${cliente.id}"
+						class="btn btn-success"> <i class="bi bi-pencil-square"></i>
+					</a></td>
+					<td><a th:href="@{/eliminarCliente/}+ ${cliente.id}"
+						class="btn btn-danger"
+						th:onclick="return confirm('Estás seguro que deseas eliminar el registro?');">
+							<i class="bi bi-trash-fill"></i>
+					</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+	<!--  End code -->
+</body>
+</html>

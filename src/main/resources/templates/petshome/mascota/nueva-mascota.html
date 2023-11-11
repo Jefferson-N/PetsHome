@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/petshome/plantilla/petshome-plantilla}">
+<head>
+<meta charset="UTF-8">
+<title th:text="${tituloPagina}"></title>
+</head>
+<body>
+
+	<!--  Start code -->
+
+	<div layout:fragment="ContenidoPetsHome">
+
+		<div class="col-12 btncancel">
+			<a class="btn btn-primary" th:href="@{/listarMascota}"> <i
+				class="bi bi-house-door"></i>
+			</a>
+		</div>
+		<form class="row g-3" th:action="@{/guardarMascota}"
+			th:object="${mascotaForm}" method="POST">
+
+			<input th:field="*{idMascota}" type="hidden" class="form-control"
+				id="idMascota">
+
+			<div class="col-12">
+				<label for="nombre" class="form-label">Nombre</label> <input
+					th:field="*{nombreMascota}" type="text" class="form-control"
+					id="nombre" required>
+			</div>
+			<div class="col-12">
+				<label for="edad" class="form-label">Edad</label> <input
+					th:field="*{edadMascota}" type="number" class="form-control"
+					id="edad" required >
+			</div>
+			<div class="col-12">
+				<label for="cliente" class="form-label">Cliente</label> <select
+					th:field="*{fkCliente}" class="form-select" aria-label="Cliente" >
+					<th:block th:each="cliente:${clientes}">
+						<option th:value="${cliente.id}"
+							th:text="${cliente.nombreCliente +' '+ cliente.apellidoCliente}">
+						</option>
+					</th:block>
+				</select>
+			</div>
+
+			<div class="col-12">
+				<label for="tipo" class="form-label">Tipo Animal</label> <select
+					th:field="*{fkTipoAnimal}" class="form-select"
+					aria-label="Tipo Animal">
+					<th:block th:each="tipo:${listadoAnimal}">
+						<option th:value="${tipo.id}" th:text="${tipo.descripcionTipo}"></option>
+					</th:block>
+				</select>
+			</div>
+			<div class="col-12">
+				<label for="fecha" class="form-label">Fecha Registro</label> <input
+					th:field="*{fechaRegistro}" th:type="date" class="form-control"
+					id="fecha" required>
+			</div>
+
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="reset" class="btn btn-secondary">Reset</button>
+			</div>
+		</form>
+
+	</div>
+	<!-- End Code -->
+
+</body>
+
+</html>

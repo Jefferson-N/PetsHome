@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/petshome/plantilla/petshome-plantilla}">
+<head>
+<meta charset="UTF-8">
+<title th:text="${tituloPagina}"></title>
+</head>
+<body>
+
+	<!--  Start code -->
+	<div layout:fragment="ContenidoPetsHome">
+		<table class="table table-hover ">
+			<thead>
+				<th><a class="btn btn-primary" th:href="@{/crearVacuna}"> <i
+						class="bi bi-file-earmark-plus"></i>
+				</a></th>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre vacuna</th>
+					<th scope="col">Motivo vacuna</th>
+					<th scope="col">Nombre mascota</th>
+					<th scope="col">Fecha vacuna</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="vacuna : ${vacunas}">
+					<td th:text="${vacuna.id}"></td>
+					<td th:text="${vacuna.nombreVacuna}"></td>
+					<td th:text="${vacuna.motivoVacuna}"></td>
+					<td th:text="${vacuna.fkMascota.nombreMascota}"></td>
+					<td th:text="${vacuna.fechaVacuna}"></td>
+					<td><a th:href="@{/editarVacuna/} + ${vacuna.id}"
+						class="btn btn-success"> <i class="bi bi-pencil-square"></i>
+					</a></td>
+					<td><a th:href="@{/eliminarVacuna/} + ${vacuna.id}"
+						th:onclick="return confirm('Esta seguro de eliminar el registro')"
+						class="btn btn-danger"> <i class="bi bi-trash-fill"></i>
+					</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<!--  End code -->
+	</div>
+</body>
+
+</html>

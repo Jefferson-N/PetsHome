@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/petshome/plantilla/petshome-plantilla}">
+<head>
+<meta charset="UTF-8">
+<title th:text="${tituloPagina}"></title>
+</head>
+<body>
+
+	<!--  Start code -->
+	<div layout:fragment="ContenidoPetsHome">
+		<table class="table table-hover ">
+			<thead>
+				<th><a class="btn btn-primary" th:href="@{/crearMascota}">
+						<i class="bi bi-file-earmark-plus"></i>
+				</a></th>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre Mascota</th>
+					<th scope="col">Edad Mascota</th>
+					<th scope="col">Tipo Animal</th>
+					<th scope="col">Nombre Cliente</th>
+					<th scope="col">Fecha Registro</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="mascota : ${mascotas}">
+					<td th:text="${mascota.idMascota}"></td>
+					<td th:text="${mascota.nombreMascota}"></td>
+					<td th:text="${mascota.edadMascota}"></td>
+					<td th:text="${mascota.fkTipoAnimal.descripcionTipo}"></td>
+					<td th:text="${mascota.fkCliente.nombreCliente}"></td>
+					<td th:text="${mascota.fechaRegistro}"></td>
+					<td><a th:href="@{/editarMascota/}+${mascota.idMascota}"
+						class="btn btn-success"> <i class="bi bi-pencil-square"></i>
+					</a></td>
+					<td><a th:href="@{/eliminarMascota/}+${mascota.idMascota}"
+					th:onclick="return confirm('Esta seguro de eliminar el registro')"
+						class="btn btn-danger"> <i class="bi bi-trash-fill"></i>
+					</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+	<!--  End code -->
+</body>
+</html>

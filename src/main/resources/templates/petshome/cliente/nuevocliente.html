@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/petshome/plantilla/petshome-plantilla}">
+<head>
+<meta charset="UTF-8">
+<title th:text="${tituloPagina}"></title>
+</head>
+<body>
+	<!--  Start code -->
+	<div layout:fragment="ContenidoPetsHome">
+
+		<div class="col-12 btncancel">
+			<a class="btn btn-primary" th:href="@{/listarCliente}"> <i
+				class="bi bi-house-door"></i>
+			</a>
+		</div>
+		<!-- Vertical Form -->
+		<form class="row g-3" th:action="@{/guardarCliente}" method="POST"
+			th:object="${cliente}">
+			<div class="col-12">
+				<label for="cedula" class="form-label">Cedula</label> <input
+					th:field="*{identificacionCliente}" type="text"
+					class="form-control" id="cedula" placeholder="Cedula" required>
+			</div>
+			<div class="col-12">
+				<label for="nombre" class="form-label">Nombre</label> <input
+					th:field="*{nombreCliente}" type="text" class="form-control"
+					id="nombre" placeholder="Nombre" required>
+			</div>
+			<div class="col-12">
+				<label for="apellido" class="form-label">Apellido</label> <input
+					th:field="*{apellidoCliente}" type="text" class="form-control"
+					id="apellido" placeholder="Apellido" required>
+			</div>
+			<div class="col-12">
+				<label for="correo" class="form-label">Correo</label> <input
+					th:field="*{emailCliente}" placeholder="example@mail.com"
+					type="email" class="form-control" id="correo" required>
+			</div>
+
+			<input th:field="*{id}" placeholder="" type="hidden">
+
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="reset" class="btn btn-secondary">Reset</button>
+			</div>
+		</form>
+		<!-- Vertical Form -->
+	</div>
+	<!--  End code -->
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/petshome/plantilla/petshome-plantilla}">
+<head>
+<meta charset="UTF-8">
+<title th:text="${tituloPagina}"></title>
+</head>
+<body>
+
+	<!--  Start code -->
+	<div layout:fragment="ContenidoPetsHome">
+		<div class="col-12 btncancel">
+			<a class="btn btn-primary" th:href="@{/listarVacuna}"> <i
+				class="bi bi-house-door"></i>
+			</a>
+		</div>
+
+		<form class="row g-3" th:action="@{/guardarVacuna}"
+			th:object="${vacunaForm}" method="POST">
+
+			<input th:field="*{id}" type="hidden" class="form-control"
+				id="nombre">
+
+			<div class="col-12">
+				<label for="nombre" class="form-label">Nombre vacuna</label> <input
+					th:field="*{nombreVacuna}" type="text" class="form-control" required
+					id="nombre">
+			</div>
+			<div class="col-12">
+				<label for="motivo" class="form-label">Motivo</label> <input
+					th:field="*{motivoVacuna}" type="text" class="form-control" required
+					id="motivo">
+			</div>
+			<div class="col-12">
+				<label for="fecha" class="form-label">Mascota</label> <select
+					th:field="*{fkMascota}" class="form-select"
+					aria-label="Default select example"><th:block
+						th:each="mascota:${mascotas}">
+						<option th:value="${mascota.idMascota}"
+							th:text="${mascota.nombreMascota}"></option>
+					</th:block></select>
+
+			</div>
+
+			<div class="col-12">
+				<label for="fecha" class="form-label">Fecha Vacuna</label> <input
+					th:field="*{fechaVacuna}" type="date" class="form-control" required
+					id="fecha">
+			</div>
+
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="reset" class="btn btn-secondary">Reset</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+
+</html>
