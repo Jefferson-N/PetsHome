@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.uisrael.petsHome.modelo.entidades.Cliente;
-import com.uisrael.petsHome.modelo.entidades.Mascota;
 import com.uisrael.petsHome.servicio.IClienteServicio;
 
 @SpringBootTest

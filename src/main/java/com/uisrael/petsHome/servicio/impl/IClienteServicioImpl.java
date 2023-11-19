@@ -38,25 +38,24 @@ public class IClienteServicioImpl implements IClienteServicio {
 
 	@Override
 	public List<Cliente> buscarClientePorCedula(String cedula) {
-		// TODO Auto-generated method stub
 		return clienteRepositorio.buscarClientePorCedula(cedula);
 	}
 
 	@Override
 	public List<Cliente> buscarClientePorNombreApellido(String nombre, String apellido) {
-		// TODO Auto-generated method stub
+		
 		return clienteRepositorio.buscarClientePorNombreApellido(nombre, apellido);
 	}
 
 	@Override
 	public List<Cliente> buscarClientePorCorreo(String email) {
-		// TODO Auto-generated method stub
+		
 		return clienteRepositorio.buscarClientePorCorreo(email);
 	}
 
 	@Override
 	public Cliente buscarClientePorId(int id) {
-		// TODO Auto-generated method stub
+		
 		return clienteRepositorio.buscarClientePorId(id);
 	}
 

@@ -34,31 +34,31 @@ public class IMascotaServicioImpl implements IMascotaServicio {
 
 	@Override
 	public List<Mascota> buscarMascotaPorNombre(String nombre) {
-		// TODO Auto-generated method stub
+		
 		return mascotaRepositorio.buscarMascotaPorFlitroNombre(nombre);
 	}
 
 	@Override
 	public List<Mascota> buscarMascotaPorFlitroNombre(String filtro) {
-		// TODO Auto-generated method stub
+		
 		return mascotaRepositorio.buscarMascotaPorFlitroNombre(filtro);
 	}
 
 	@Override
 	public List<Mascota> buscarMascotaFiltroNombreEdad(String filtro, int edad) {
-		// TODO Auto-generated method stub
+		
 		return mascotaRepositorio.buscarMascotaFiltroNombreEdad(filtro, edad);
 	}
 
 	@Override
 	public Mascota buscarMascotaId(int id) {
-		// TODO Auto-generated method stub
+		
 		return mascotaRepositorio.buscarMascotaId(id);
 	}
 
 	@Override
 	public void eliminarMascota(Mascota mascota) {
-		// TODO Auto-generated method stub
+		
 		mascotaRepositorio.delete(mascota);
 	}
 

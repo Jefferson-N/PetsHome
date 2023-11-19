@@ -37,31 +37,31 @@ public class IVacunaServicioImpl implements IVacunaServicio {
 
 	@Override
 	public List<Vacuna> buscarVacunaPorNombre(String nombre) {
-		// TODO Auto-generated method stub
+		
 		return vacunaRepositorio.buscarVacunaPorNombre(nombre);
 	}
 
 	@Override
 	public List<Vacuna> buscarVacunaPorNombrefecha(String nombre, Date fecha) {
-		// TODO Auto-generated method stub
+		
 		return vacunaRepositorio.buscarVacunaPorNombrefecha(nombre, fecha);
 	}
 
 	@Override
 	public List<Vacuna> buscarVacunaPorFiltroNombreFecha(String nombre, Date fecha) {
-		// TODO Auto-generated method stub
+		
 		return vacunaRepositorio.buscarVacunaPorFiltroNombreFecha(nombre, fecha);
 	}
 
 	@Override
 	public Vacuna buscarVacunaId(int id) {
-		// TODO Auto-generated method stub
+		
 		return vacunaRepositorio.buscarVacunaId(id);
 	}
 
 	@Override
 	public void eliminarVacuna(Vacuna vacuna) {
-		// TODO Auto-generated method stub
+		
 		 vacunaRepositorio.delete(vacuna);
 	}
 

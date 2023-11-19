@@ -29,37 +29,37 @@ public class ITipoAnimalServicioImpl implements ITipoAnimalServicio {
 
 	@Override
 	public List<TipoAnimal> listarTipoAnimal() {
-		// TODO Auto-generated method stub
+		
 		return tipoAnimalRepositorio.findAll();
 	}
 
 	@Override
 	public List<TipoAnimal> buscarTipoAnimalPorTipoAnimal(String tipo) {
-		// TODO Auto-generated method stub
+		
 		return tipoAnimalRepositorio.buscarTipoAnimalPorTipoAnimal(tipo);
 	}
 
 	@Override
 	public List<TipoAnimal> buscarTipoAnimalPorTipoAnimalEstado(String tipo, String estado) {
-		// TODO Auto-generated method stub
+		
 		return tipoAnimalRepositorio.buscarTipoAnimalPorTipoAnimalEstado(tipo, estado);
 	}
 
 	@Override
 	public List<TipoAnimal> buscarTipoAnimalPorTipoAnimalOrEstado(String tipo, String estado) {
-		// TODO Auto-generated method stub
+		
 		return tipoAnimalRepositorio.buscarTipoAnimalPorTipoAnimalOrEstado(tipo, estado);
 	}
 
 	@Override
 	public TipoAnimal buscarTipoAnimalId(int id) {
-		// TODO Auto-generated method stub
+		
 		return tipoAnimalRepositorio.buscarTipoAnimalId(id);
 	}
 
 	@Override
 	public List<TipoAnimal> buscarTipoAnimalEstado(String estado) {
-		// TODO Auto-generated method stub
+		
 		return tipoAnimalRepositorio.buscarTipoAnimalEstado(estado);
 	}
 

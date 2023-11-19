@@ -35,31 +35,31 @@ public class IRazaServicioImpl implements IRazaServicio {
 
 	@Override
 	public List<Raza> buscarRazaPordetalle(String detalle) {
-		// TODO Auto-generated method stub
+		
 		return razaRepositorio.buscarRazaPordetalle(detalle);
 	}
 
 	@Override
 	public List<Raza> buscarRazaPordetalleEstado(String detalle, String estado) {
-		// TODO Auto-generated method stub
+		
 		return razaRepositorio.buscarRazaPordetalleEstado(detalle, estado);
 	}
 
 	@Override
 	public List<Raza> buscarRazaPorDetalleOrEstado(String detalle, String estado) {
-		// TODO Auto-generated method stub
+		
 		return razaRepositorio.buscarRazaPorDetalleOrEstado(detalle, estado);
 	}
 
 	@Override
 	public Raza buscarRazaId(int id) {
-		// TODO Auto-generated method stub
+		
 		return razaRepositorio.buscarRazaId(id);
 	}
 
 	@Override
 	public List<Raza> buscarRazaEstado(String estado) {
-		// TODO Auto-generated method stub
+		
 		return razaRepositorio.buscarRazaEstado(estado);
 	}
 
