@@ -33,8 +33,11 @@ public class Cliente implements Serializable {
 	private String apellidoCliente;
 	@Column(name = "cl_email", length = 45)
 	private String emailCliente;
+	@Column(name = "cl_edad")
+	private int edad ;
 
 	@OneToMany(mappedBy = "fkCliente")
 	private List<Mascota> mascota = new ArrayList<>();
+
 
 }
