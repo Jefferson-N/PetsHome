@@ -12,7 +12,7 @@ import com.uisrael.petsHome.servicio.IClienteServicio;
 
 @Service
 @Component
-public class IClienteServicioImpl implements IClienteServicio {
+public class ClienteServicioImpl implements IClienteServicio {
 
 	@Autowired
 	private IClienteRepositorio clienteRepositorio;
