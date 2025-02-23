@@ -30,6 +30,7 @@ pipeline {
                 node('EXECUTORVM') {
                     cleanWs()
                 }
+            }
         }
     }
 }
