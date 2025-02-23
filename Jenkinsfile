@@ -5,8 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh py --version
-                sh py main.py
+                py --version
+                py main.py
 
             }
         }

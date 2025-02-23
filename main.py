@@ -1,2 +1,2 @@
 print("TEST")
-print("TEST...CI")
+print("TEST...CI/")
