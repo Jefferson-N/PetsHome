@@ -7,8 +7,9 @@ pipeline {
     stages {
 
         stage('GIT CLONE') {
-            steps{ sh 'git clone origin ${env.MAIN_URL}'}
-            steps{ sh 'cd ${PROJECT_PATH}'}
+            steps{ sh 'git clone origin ${env.MAIN_URL}'
+                   sh 'cd ${PROJECT_PATH}'
+            }
         }
 
         stage('Build') {
