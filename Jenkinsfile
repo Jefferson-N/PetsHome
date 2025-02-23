@@ -1,12 +1,22 @@
 pipeline {
-    agent { label 'EXECUTORVM' }
+    agent { label 'EXECUTORVM'
+    }
+    enviroment{
+        MAIN_URL: credentials('MAIN_URL')
+        PROJECT_PATH: credentials('PROJECT_PATH')
+    }
     stages {
+
+        stage('GIT CLONE'){
+            steps{ sh 'git clone origin ${env.MAIN_URL}'}
+            steps{ sh 'cd ${PROJECT_PATH}'}
+        }
+
         stage('Build') {
             steps {
                 echo 'Building...'
                 sh 'py --version'
                 sh 'py main.py'
-
             }
         }
         stage('Test') {
@@ -18,6 +28,12 @@ pipeline {
             steps {
                 echo 'Deploying...'
             }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
         }
     }
 }
