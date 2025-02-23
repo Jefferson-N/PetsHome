@@ -7,11 +7,20 @@ pipeline {
     stages {
 
         stage('GIT CLONE') {
-            steps{ sh 'git clone origin ${env.MAIN_URL}'
-                   sh 'cd ${PROJECT_PATH}'
+            steps {
+                script {
+                    node {
+                        checkout([
+                            $class: 'GitSCM',
+                            branches: [[name: '*/main']],
+                            doGenerateSubmoduleConfigurations: false,
+                            extensions: [[$class: 'CleanCheckout']],
+                            userRemoteConfigs: [[url: '${PROJECT_PATH}']]
+                        ])
+                    }
+                }
             }
         }
-
         stage('Build') {
             steps {
                 echo 'Building...'
@@ -30,7 +39,7 @@ pipeline {
             }
         }
     }
-
+    
     post {
         always {
             script {
