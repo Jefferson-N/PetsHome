@@ -26,7 +26,11 @@ pipeline {
     }
     post {
         always {
-            cleanWs() 
+           {
+            script {
+                node('EXECUTORVM') {
+                    cleanWs()
+                }
         }
     }
 }
