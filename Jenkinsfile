@@ -1,6 +1,6 @@
 pipeline {
     agent { label 'EXECUTORVM'}
-    enviroment{
+    environment {
         MAIN_URL = credentials('MAIN_URL')
         PROJECT_PATH = credentials('PROJECT_PATH')
     }
