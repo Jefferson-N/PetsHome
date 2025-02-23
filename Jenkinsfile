@@ -5,19 +5,7 @@ pipeline {
         PROJECT_PATH = credentials('PROJECT_PATH')
     }
     stages {
-        stage('GIT CLONE') {
-            steps {
-                script {
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: '*/main']],
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [[$class: 'CleanCheckout']],
-                        userRemoteConfigs: [[url: "${env.PROJECT_PATH}"]] // Corrige la referencia a la variable de entorno
-                    ])
-                }
-            }
-        }
+
         stage('Build') {
             steps {
                 echo 'Building...'
