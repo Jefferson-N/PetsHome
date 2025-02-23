@@ -1,13 +1,12 @@
 pipeline {
-    agent { label 'EXECUTORVM'
-    }
+    agent { label 'EXECUTORVM'}
     enviroment{
-        MAIN_URL: credentials('MAIN_URL')
-        PROJECT_PATH: credentials('PROJECT_PATH')
+        MAIN_URL = credentials('MAIN_URL')
+        PROJECT_PATH = credentials('PROJECT_PATH')
     }
     stages {
 
-        stage('GIT CLONE'){
+        stage('GIT CLONE') {
             steps{ sh 'git clone origin ${env.MAIN_URL}'}
             steps{ sh 'cd ${PROJECT_PATH}'}
         }
