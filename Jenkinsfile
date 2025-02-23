@@ -1,6 +1,5 @@
 pipeline {
-    agent any
-
+    agent { label 'EXECUTORVM' }
     stages {
         stage('Build') {
             steps {
