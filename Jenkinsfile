@@ -1,13 +1,14 @@
 pipeline {
     agent { label 'EXECUTORVM' }
     environment {
-        MAIN_URL = credentials('MAIN_URL')
-        PROJECT_PATH = credentials('PROJECT_PATH')
+        MAIN_URL = "credentials('MAIN_URL')"
+        PROJECT_PATH = "credentials('PROJECT_PATH')"
     }
     stages {
         stage('PRINT URL') {
             steps {
                 echo "MAIN_URL is: ${MAIN_URL}"
+                echo "PROJECT_PATH is: ${PROJECT_PATH}"
             }
         }
         stage('Build') {
