@@ -5,6 +5,11 @@ pipeline {
         PROJECT_PATH = credentials('PROJECT_PATH')
     }
     stages {
+        stage('PRINT URL') {
+            steps {
+                echo "MAIN_URL is: ${MAIN_URL}"
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building...'
